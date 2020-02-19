@@ -1,0 +1,105 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMbBjQTGzLXG68uyQuNSEBp",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "accelerator": "TPU"
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yuhan-1987/Exercise/blob/master/Caculator\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "p2sk06cSzvo6",
+        "colab_type": "code",
+        "cellView": "both",
+        "outputId": "cc2f3e1b-5355-4aca-86a9-5289179f943f",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 374
+        }
+      },
+      "source": [
+        "#@caculator\n",
+        "import sys\n",
+        "\n",
+        "def main():\n",
+        "  if len(sys.argv)!=2:\n",
+        "    print(\"Parameter Error\")\n",
+        "    exit()\n",
+        "  try:\n",
+        "    income = int(sys.argv[1])\n",
+        "  except ValueError:\n",
+        "    print(\"Parameter Error\")\n",
+        "    exit()\n",
+        "\n",
+        "  #扣除起征点\n",
+        "  value = income - 5000\n",
+        "  # 分不同区间，根据相应的税率计算税费\n",
+        "  if value <= 0:\n",
+        "    result = 0\n",
+        "  elif value <= 3000:\n",
+        "    result = value * 0.03 - 0 \n",
+        "  elif value <= 12000:\n",
+        "    result = value * 0.1 - 210\n",
+        "  elif value <= 25000:\n",
+        "    result = value * 0.2 - 1410\n",
+        "  elif value <= 35000:\n",
+        "    result = value * 0.25 - 2660\n",
+        "  elif value <= 55000:\n",
+        "    result = value * 0.3 - 4410\n",
+        "  elif value <= 80000:\n",
+        "    result = value * 0.35 - 7160 \n",
+        "  else: \n",
+        "    result = income * 0.45 - 15160\n",
+        "\n",
+        "  #print results\n",
+        "  print('{:.2f}'.format(result))\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "  main()"
+      ],
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Parameter Error\n",
+            "Parameter Error\n"
+          ],
+          "name": "stdout"
+        },
+        {
+          "output_type": "error",
+          "ename": "UnboundLocalError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mUnboundLocalError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-4-d4fd2b93241a>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     35\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     36\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0m__name__\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'__main__'\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 37\u001b[0;31m   \u001b[0mmain\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m<ipython-input-4-d4fd2b93241a>\u001b[0m in \u001b[0;36mmain\u001b[0;34m()\u001b[0m\n\u001b[1;32m     12\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     13\u001b[0m   \u001b[0;31m#扣除起征点\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 14\u001b[0;31m   \u001b[0mvalue\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mincome\u001b[0m \u001b[0;34m-\u001b[0m \u001b[0;36m5000\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     15\u001b[0m   \u001b[0;31m# 分不同区间，根据相应的税率计算税费\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m   \u001b[0;32mif\u001b[0m \u001b[0mvalue\u001b[0m \u001b[0;34m<=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mUnboundLocalError\u001b[0m: local variable 'income' referenced before assignment"
+          ]
+        }
+      ]
+    }
+  ]
+}
